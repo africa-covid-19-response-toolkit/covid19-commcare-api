@@ -1,0 +1,182 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "v1",
+        "title": "COVID - 19 Community API"
+    },
+    "paths": {
+        "/api/Community/GetAll": {
+            "get": {
+                "tags": [
+                    "Community"
+                ],
+                "operationId": "GetAll",
+                "consumes": [],
+                "produces": [
+                    "text/plain",
+                    "application/json",
+                    "text/json"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "uniqueItems": false,
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/CommunityInspection"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Community/AddCommunity": {
+            "post": {
+                "tags": [
+                    "Community"
+                ],
+                "operationId": "Post",
+                "consumes": [
+                    "application/json-patch+json",
+                    "application/json",
+                    "text/json",
+                    "application/*+json"
+                ],
+                "produces": [
+                    "text/plain",
+                    "application/json",
+                    "text/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "cm",
+                        "in": "body",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/CommunityInspection"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "CommunityInspection": {
+            "type": "object",
+            "properties": {
+                "fullName": {
+                    "type": "string"
+                },
+                "sex": {
+                    "type": "string"
+                },
+                "age": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "region": {
+                    "type": "string"
+                },
+                "subcityOrZone": {
+                    "type": "string"
+                },
+                "woreda": {
+                    "type": "string"
+                },
+                "kebele": {
+                    "type": "string"
+                },
+                "houseNo": {
+                    "type": "string"
+                },
+                "phoneNo": {
+                    "type": "string"
+                },
+                "latitude": {
+                    "type": "string"
+                },
+                "longitude": {
+                    "type": "string"
+                },
+                "occupation": {
+                    "type": "string"
+                },
+                "callDate": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "callerType": {
+                    "type": "string"
+                },
+                "fever": {
+                    "type": "boolean"
+                },
+                "cough": {
+                    "type": "boolean"
+                },
+                "headache": {
+                    "type": "boolean"
+                },
+                "runnyNose": {
+                    "type": "boolean"
+                },
+                "unwellnessFeeling": {
+                    "type": "boolean"
+                },
+                "breathingDifficulty": {
+                    "type": "boolean"
+                },
+                "bodyPain": {
+                    "type": "boolean"
+                },
+                "travleHx": {
+                    "type": "boolean"
+                },
+                "haveSex": {
+                    "type": "boolean"
+                },
+                "animalMarket": {
+                    "type": "boolean"
+                },
+                "healthFacility": {
+                    "type": "boolean"
+                },
+                "receiverName": {
+                    "type": "string"
+                },
+                "formStatus": {
+                    "type": "string"
+                },
+                "source": {
+                    "type": "string"
+                },
+                "version": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "id": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "createdDate": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "modifiedDate": {
+                    "format": "date-time",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

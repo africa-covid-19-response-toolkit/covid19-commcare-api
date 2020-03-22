@@ -1,0 +1,728 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "COVID - 19 Toll Free API",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Auth": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthenticateVm"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthenticateVm"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthenticateVm"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthenticateVm"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CovidAuthenticateResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CovidAuthenticateResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CovidAuthenticateResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/CommunityInspections/id": {
+      "get": {
+        "tags": [
+          "CommunityInspections"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommunityInspection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommunityInspection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommunityInspection"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/CommunityInspections": {
+      "get": {
+        "tags": [
+          "CommunityInspections"
+        ],
+        "parameters": [
+          {
+            "name": "LastRecord",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CommunityInspection"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CommunityInspection"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CommunityInspection"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "CommunityInspections"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddInspectionVm"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddInspectionVm"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddInspectionVm"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddInspectionVm"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommunityInspection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommunityInspection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommunityInspection"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CovidError"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CovidError"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CovidError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "CommunityInspections"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateInspectionVm"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateInspectionVm"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateInspectionVm"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateInspectionVm"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommunityInspection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommunityInspection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommunityInspection"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CovidError"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CovidError"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CovidError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/CommunityInspections/RRT": {
+      "get": {
+        "tags": [
+          "CommunityInspections"
+        ],
+        "parameters": [
+          {
+            "name": "Source",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "LastRecord",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CommunityInspection"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CommunityInspection"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CommunityInspection"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AuthenticateVm": {
+        "type": "object",
+        "properties": {
+          "UserName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Password": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CovidAuthenticateResult": {
+        "type": "object",
+        "properties": {
+          "Token": {
+            "type": "string",
+            "nullable": true
+          },
+          "Expiration": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "Role": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CommunityInspection": {
+        "type": "object",
+        "properties": {
+          "FullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Sex": {
+            "type": "string",
+            "nullable": true
+          },
+          "Age": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Region": {
+            "type": "string",
+            "nullable": true
+          },
+          "SubcityOrZone": {
+            "type": "string",
+            "nullable": true
+          },
+          "Woreda": {
+            "type": "string",
+            "nullable": true
+          },
+          "Kebele": {
+            "type": "string",
+            "nullable": true
+          },
+          "HouseNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "PhoneNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "Occupation": {
+            "type": "string",
+            "nullable": true
+          },
+          "CallDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "CallerType": {
+            "type": "string",
+            "nullable": true
+          },
+          "Fever": {
+            "type": "boolean"
+          },
+          "Cough": {
+            "type": "boolean"
+          },
+          "Headache": {
+            "type": "boolean"
+          },
+          "RunnyNose": {
+            "type": "boolean"
+          },
+          "UnwellnessFeeling": {
+            "type": "boolean"
+          },
+          "BreathingDifficulty": {
+            "type": "boolean"
+          },
+          "BodyPain": {
+            "type": "boolean"
+          },
+          "TravleHx": {
+            "type": "boolean"
+          },
+          "HaveSex": {
+            "type": "boolean"
+          },
+          "AnimalMarket": {
+            "type": "boolean"
+          },
+          "HealthFacility": {
+            "type": "boolean"
+          },
+          "ReceiverName": {
+            "type": "string",
+            "nullable": true
+          },
+          "FormStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "Source": {
+            "type": "string",
+            "nullable": true
+          },
+          "Version": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CreatedDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ModifiedDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "AddInspectionVm": {
+        "type": "object",
+        "properties": {
+          "FullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Sex": {
+            "type": "string",
+            "nullable": true
+          },
+          "Age": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Region": {
+            "type": "string",
+            "nullable": true
+          },
+          "SubcityOrZone": {
+            "type": "string",
+            "nullable": true
+          },
+          "Woreda": {
+            "type": "string",
+            "nullable": true
+          },
+          "Kebele": {
+            "type": "string",
+            "nullable": true
+          },
+          "HouseNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "PhoneNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "Occupation": {
+            "type": "string",
+            "nullable": true
+          },
+          "CallDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "CallerType": {
+            "type": "string",
+            "nullable": true
+          },
+          "Fever": {
+            "type": "boolean"
+          },
+          "Cough": {
+            "type": "boolean"
+          },
+          "Headache": {
+            "type": "boolean"
+          },
+          "RunnyNose": {
+            "type": "boolean"
+          },
+          "UnwellnessFeeling": {
+            "type": "boolean"
+          },
+          "BreathingDifficulty": {
+            "type": "boolean"
+          },
+          "BodyPain": {
+            "type": "boolean"
+          },
+          "TravleHx": {
+            "type": "boolean"
+          },
+          "HaveSex": {
+            "type": "boolean"
+          },
+          "AnimalMarket": {
+            "type": "boolean"
+          },
+          "HealthFacility": {
+            "type": "boolean"
+          },
+          "ReceiverName": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CovidError": {
+        "type": "object",
+        "properties": {
+          "Errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        }
+      },
+      "UpdateInspectionVm": {
+        "type": "object",
+        "properties": {
+          "ID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "FullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Sex": {
+            "type": "string",
+            "nullable": true
+          },
+          "Age": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Region": {
+            "type": "string",
+            "nullable": true
+          },
+          "SubcityOrZone": {
+            "type": "string",
+            "nullable": true
+          },
+          "Woreda": {
+            "type": "string",
+            "nullable": true
+          },
+          "Kebele": {
+            "type": "string",
+            "nullable": true
+          },
+          "HouseNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "PhoneNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "Occupation": {
+            "type": "string",
+            "nullable": true
+          },
+          "CallDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "CallerType": {
+            "type": "string",
+            "nullable": true
+          },
+          "Fever": {
+            "type": "boolean"
+          },
+          "Cough": {
+            "type": "boolean"
+          },
+          "Headache": {
+            "type": "boolean"
+          },
+          "RunnyNose": {
+            "type": "boolean"
+          },
+          "UnwellnessFeeling": {
+            "type": "boolean"
+          },
+          "BreathingDifficulty": {
+            "type": "boolean"
+          },
+          "BodyPain": {
+            "type": "boolean"
+          },
+          "TravleHx": {
+            "type": "boolean"
+          },
+          "HaveSex": {
+            "type": "boolean"
+          },
+          "AnimalMarket": {
+            "type": "boolean"
+          },
+          "HealthFacility": {
+            "type": "boolean"
+          },
+          "ReceiverName": {
+            "type": "string",
+            "nullable": true
+          },
+          "FormStatus": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "Please insert JWT with Bearer into field",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": []
+    }
+  ]
+}

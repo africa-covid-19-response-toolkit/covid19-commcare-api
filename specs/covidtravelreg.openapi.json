@@ -1,0 +1,153 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "v1",
+        "title": "COVID - 19 Travlers API"
+    },
+    "paths": {
+        "/api/Travllers/GetAll": {
+            "get": {
+                "tags": [
+                    "Travllers"
+                ],
+                "operationId": "GetAll",
+                "consumes": [],
+                "produces": [
+                    "text/plain",
+                    "application/json",
+                    "text/json"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "uniqueItems": false,
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Travller"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Travllers/AddTravler": {
+            "post": {
+                "tags": [
+                    "Travllers"
+                ],
+                "operationId": "Post",
+                "consumes": [
+                    "application/json-patch+json",
+                    "application/json",
+                    "text/json",
+                    "application/*+json"
+                ],
+                "produces": [
+                    "text/plain",
+                    "application/json",
+                    "text/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "tv",
+                        "in": "body",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Travller"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Travller": {
+            "type": "object",
+            "properties": {
+                "firstName": {
+                    "type": "string"
+                },
+                "middleName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "gender": {
+                    "type": "string"
+                },
+                "passportNo": {
+                    "type": "string"
+                },
+                "birthdate": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "nationality": {
+                    "type": "string"
+                },
+                "region": {
+                    "type": "string"
+                },
+                "subcity": {
+                    "type": "string"
+                },
+                "woreda": {
+                    "type": "string"
+                },
+                "houseNo": {
+                    "type": "string"
+                },
+                "phoneNo": {
+                    "type": "string"
+                },
+                "hotelName": {
+                    "type": "string"
+                },
+                "travelFrom": {
+                    "type": "string"
+                },
+                "flightNumber": {
+                    "type": "string"
+                },
+                "transitFrom": {
+                    "type": "string"
+                },
+                "seatNumber": {
+                    "type": "string"
+                },
+                "hasFever": {
+                    "type": "boolean"
+                },
+                "hasDryCough": {
+                    "type": "boolean"
+                },
+                "hasSOB": {
+                    "type": "boolean"
+                },
+                "temprature": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "createdAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "id": {
+                    "format": "int32",
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}
