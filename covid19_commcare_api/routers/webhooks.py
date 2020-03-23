@@ -5,5 +5,5 @@ router = APIRouter()
 
 
 @router.get('/example')
-async def example():
+def example():
     return 'Response'
