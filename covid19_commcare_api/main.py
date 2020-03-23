@@ -6,11 +6,12 @@ from covid19_commcare_api.routers import (
 
 
 app = FastAPI()
-app.include_router(webhooks.router, prefix='/api/Auth')
+app.include_router(auth.router, prefix='/api/Auth')
 app.include_router(webhooks.router, prefix='/webhooks')
-app.include_router(webhooks.router, prefix='/api/CommunityInspection')
-app.include_router(webhooks.router, prefix='/api/Community')
-app.include_router(webhooks.router, prefix='/api/Traveller')
+app.include_router(community_inspections.router,
+                   prefix='/api/CommunityInspection')
+app.include_router(community.router, prefix='/api/Community')
+app.include_router(traveller.router, prefix='/api/Traveller')
 
 
 @app.get('/')
