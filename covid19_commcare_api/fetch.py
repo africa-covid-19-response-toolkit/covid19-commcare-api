@@ -1,11 +1,7 @@
 
 import requests
 
-
-#TODO: get as an argument; also support tokens?
-#for the time being you need to hard-code the commcare username and password
-USER_NAME = ''
-PASSWORD = ''
+from covid19_commcare_api.settings import USERNAME, PASSWORD, BASE_URL
 
 
 #  ----------------------------------------------------------------------------
@@ -25,13 +21,6 @@ PASSWORD = ''
 #  ----------------------------------------------------------------------------
 
 
-
-FORM_XMLNS = 'http://openrosa.org/formdesigner/158EB23A-DCFF-4680-90DA-A52D95628A8C'
-FROM_APPP_ID = '7c00659a2a5f4ce8aa635c879f54e136'
-
-BASE_URL =  'https://www.commcarehq.org/a/ethiocovid19/api/v0.5/form/?xmlns={0}&app_id={1}'.format(FORM_XMLNS, FROM_APPP_ID)
-
-
 def fetch_border_registration(limit = 20, offset = 0):
     return fetch_form_submissions('border_registration', limit, offset)
 
@@ -47,7 +36,7 @@ def fetch_form_submissions(form_type, limit=20, offset=0):
    
     url = BASE_URL  + "&limit={0}&offset={1}".format(limit, offset)
     print(url)  
-    resp = requests.get(url, auth=(USER_NAME, PASSWORD))
+    resp = requests.get(url, auth=(USERNAME, PASSWORD))
 
     if resp.status_code == 200: return filter_form_submissions(form_type, resp.json())
     else:

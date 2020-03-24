@@ -11,6 +11,7 @@ fastapi = "*"
 uvicorn = "*"
 graphene = "*"
 commcare-export = "*"
+requests = "*"
 
 [requires]
 python_version = "3.6"
