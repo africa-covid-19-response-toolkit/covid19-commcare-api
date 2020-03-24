@@ -14,6 +14,13 @@ $ pipenv shell --three
 $ pipenv install --dev --skip-lock
 ```
 
+Export the CommCare credentials to the environment.
+
+```bash
+$ export COMMCARE_USERNAME=...
+$ export COMMCARE_PASSWORD=...
+```
+
 Run the [FastAPI](https://fastapi.tiangolo.com/tutorial/first-steps/) development server in the Python virtual environment.
 
 ```bash
@@ -21,4 +28,3 @@ $ ./dev-server.sh
 ```
 
 You can view the OpenAPI exported docs at `localhost:8000/docs`.
-
